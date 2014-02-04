@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B00A3E434E14EB4B4DEEC5D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1AD7634BEC4BCB87D3DD4D /* libPods.a */; };
+		A16D108F18971AED008205DD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D107818971AED008205DD /* LoginViewController.m */; };
+		A16D109018971AED008205DD /* ProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D107A18971AED008205DD /* ProjectsViewController.m */; };
+		A16D109118971AED008205DD /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D107C18971AED008205DD /* SecondViewController.m */; };
+		A16D109218971AED008205DD /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D107E18971AED008205DD /* TableViewController.m */; };
+		A16D109318971AED008205DD /* _Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108118971AED008205DD /* _Project.m */; };
+		A16D109418971AED008205DD /* _RemoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108318971AED008205DD /* _RemoteObject.m */; };
+		A16D109518971AED008205DD /* _Story.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108518971AED008205DD /* _Story.m */; };
+		A16D109618971AED008205DD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A16D108618971AED008205DD /* Model.xcdatamodeld */; };
+		A16D109718971AED008205DD /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108918971AED008205DD /* Project.m */; };
+		A16D109818971AED008205DD /* RemoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108B18971AED008205DD /* RemoteObject.m */; };
+		A16D109918971AED008205DD /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D108D18971AED008205DD /* Story.m */; };
+		A16D109F18971B6E008205DD /* APIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D109C18971B6E008205DD /* APIConnector.m */; };
+		A16D10A018971B6E008205DD /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A16D109E18971B6E008205DD /* MappingProvider.m */; };
+		A16E9897189DFB8E00FC0346 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16E9896189DFB8E00FC0346 /* FormViewController.m */; };
 		A1F595B81897174100005E86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F595B71897174100005E86 /* UIKit.framework */; };
 		A1F595BA1897174100005E86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F595B91897174100005E86 /* Foundation.framework */; };
 		A1F595BC1897174100005E86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F595BB1897174100005E86 /* CoreGraphics.framework */; };
@@ -17,10 +32,8 @@
 		A1F595CC1897174100005E86 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595CB1897174100005E86 /* Default@2x.png */; };
 		A1F595CE1897174100005E86 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595CD1897174100005E86 /* Default-568h@2x.png */; };
 		A1F595D11897174200005E86 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F595CF1897174200005E86 /* MainStoryboard.storyboard */; };
-		A1F595D41897174200005E86 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F595D31897174200005E86 /* FirstViewController.m */; };
 		A1F595D61897174200005E86 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595D51897174200005E86 /* first.png */; };
 		A1F595D81897174200005E86 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595D71897174200005E86 /* first@2x.png */; };
-		A1F595DB1897174200005E86 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F595DA1897174200005E86 /* SecondViewController.m */; };
 		A1F595DD1897174200005E86 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595DC1897174200005E86 /* second.png */; };
 		A1F595DF1897174200005E86 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F595DE1897174200005E86 /* second@2x.png */; };
 		A1F595E71897174200005E86 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F595E61897174200005E86 /* SenTestingKit.framework */; };
@@ -28,6 +41,8 @@
 		A1F595E91897174200005E86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F595B91897174100005E86 /* Foundation.framework */; };
 		A1F595F11897174200005E86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1F595EF1897174200005E86 /* InfoPlist.strings */; };
 		A1F595F41897174200005E86 /* easyTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F595F31897174200005E86 /* easyTrackerTests.m */; };
+		A1FF3E1D189AA9C500FAA732 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FF3E1A189AA9C500FAA732 /* _User.m */; };
+		A1FF3E1E189AA9C500FAA732 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FF3E1C189AA9C500FAA732 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +56,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		531ABCA173F14172B8B6F738 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8C1AD7634BEC4BCB87D3DD4D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16D107718971AED008205DD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A16D107818971AED008205DD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A16D107918971AED008205DD /* ProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsViewController.h; sourceTree = "<group>"; };
+		A16D107A18971AED008205DD /* ProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsViewController.m; sourceTree = "<group>"; };
+		A16D107B18971AED008205DD /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		A16D107C18971AED008205DD /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		A16D107D18971AED008205DD /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		A16D107E18971AED008205DD /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		A16D108018971AED008205DD /* _Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Project.h; sourceTree = "<group>"; };
+		A16D108118971AED008205DD /* _Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Project.m; sourceTree = "<group>"; };
+		A16D108218971AED008205DD /* _RemoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RemoteObject.h; sourceTree = "<group>"; };
+		A16D108318971AED008205DD /* _RemoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RemoteObject.m; sourceTree = "<group>"; };
+		A16D108418971AED008205DD /* _Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Story.h; sourceTree = "<group>"; };
+		A16D108518971AED008205DD /* _Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Story.m; sourceTree = "<group>"; };
+		A16D108718971AED008205DD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A16D108818971AED008205DD /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		A16D108918971AED008205DD /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		A16D108A18971AED008205DD /* RemoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteObject.h; sourceTree = "<group>"; };
+		A16D108B18971AED008205DD /* RemoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteObject.m; sourceTree = "<group>"; };
+		A16D108C18971AED008205DD /* Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Story.h; sourceTree = "<group>"; };
+		A16D108D18971AED008205DD /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
+		A16D109B18971B6E008205DD /* APIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConnector.h; sourceTree = "<group>"; };
+		A16D109C18971B6E008205DD /* APIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnector.m; sourceTree = "<group>"; };
+		A16D109D18971B6E008205DD /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
+		A16D109E18971B6E008205DD /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
+		A16E9895189DFB8E00FC0346 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
+		A16E9896189DFB8E00FC0346 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
 		A1F595B41897174100005E86 /* easyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F595B71897174100005E86 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1F595B91897174100005E86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,12 +99,8 @@
 		A1F595CB1897174100005E86 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A1F595CD1897174100005E86 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A1F595D01897174200005E86 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		A1F595D21897174200005E86 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		A1F595D31897174200005E86 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		A1F595D51897174200005E86 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		A1F595D71897174200005E86 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		A1F595D91897174200005E86 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		A1F595DA1897174200005E86 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		A1F595DC1897174200005E86 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		A1F595DE1897174200005E86 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		A1F595E51897174200005E86 /* easyTrackerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easyTrackerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +109,10 @@
 		A1F595F01897174200005E86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1F595F21897174200005E86 /* easyTrackerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = easyTrackerTests.h; sourceTree = "<group>"; };
 		A1F595F31897174200005E86 /* easyTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = easyTrackerTests.m; sourceTree = "<group>"; };
+		A1FF3E19189AA9C500FAA732 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		A1FF3E1A189AA9C500FAA732 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		A1FF3E1B189AA9C500FAA732 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		A1FF3E1C189AA9C500FAA732 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +123,7 @@
 				A1F595B81897174100005E86 /* UIKit.framework in Frameworks */,
 				A1F595BA1897174100005E86 /* Foundation.framework in Frameworks */,
 				A1F595BC1897174100005E86 /* CoreGraphics.framework in Frameworks */,
+				8B00A3E434E14EB4B4DEEC5D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +140,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A16D107418971AED008205DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A16D107718971AED008205DD /* LoginViewController.h */,
+				A16D107818971AED008205DD /* LoginViewController.m */,
+				A16D107918971AED008205DD /* ProjectsViewController.h */,
+				A16D107A18971AED008205DD /* ProjectsViewController.m */,
+				A16D107B18971AED008205DD /* SecondViewController.h */,
+				A16D107C18971AED008205DD /* SecondViewController.m */,
+				A16D107D18971AED008205DD /* TableViewController.h */,
+				A16D107E18971AED008205DD /* TableViewController.m */,
+				A16E9895189DFB8E00FC0346 /* FormViewController.h */,
+				A16E9896189DFB8E00FC0346 /* FormViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A16D107F18971AED008205DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1FF3E19189AA9C500FAA732 /* _User.h */,
+				A1FF3E1A189AA9C500FAA732 /* _User.m */,
+				A1FF3E1B189AA9C500FAA732 /* User.h */,
+				A1FF3E1C189AA9C500FAA732 /* User.m */,
+				A16D108018971AED008205DD /* _Project.h */,
+				A16D108118971AED008205DD /* _Project.m */,
+				A16D108218971AED008205DD /* _RemoteObject.h */,
+				A16D108318971AED008205DD /* _RemoteObject.m */,
+				A16D108418971AED008205DD /* _Story.h */,
+				A16D108518971AED008205DD /* _Story.m */,
+				A16D108618971AED008205DD /* Model.xcdatamodeld */,
+				A16D108818971AED008205DD /* Project.h */,
+				A16D108918971AED008205DD /* Project.m */,
+				A16D108A18971AED008205DD /* RemoteObject.h */,
+				A16D108B18971AED008205DD /* RemoteObject.m */,
+				A16D108C18971AED008205DD /* Story.h */,
+				A16D108D18971AED008205DD /* Story.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A16D109A18971B6E008205DD /* Connector */ = {
+			isa = PBXGroup;
+			children = (
+				A16D109B18971B6E008205DD /* APIConnector.h */,
+				A16D109C18971B6E008205DD /* APIConnector.m */,
+				A16D109D18971B6E008205DD /* MappingProvider.h */,
+				A16D109E18971B6E008205DD /* MappingProvider.m */,
+			);
+			path = Connector;
+			sourceTree = "<group>";
+		};
 		A1F595AB1897174100005E86 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +199,7 @@
 				A1F595EC1897174200005E86 /* easyTrackerTests */,
 				A1F595B61897174100005E86 /* Frameworks */,
 				A1F595B51897174100005E86 /* Products */,
+				531ABCA173F14172B8B6F738 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +219,7 @@
 				A1F595B91897174100005E86 /* Foundation.framework */,
 				A1F595BB1897174100005E86 /* CoreGraphics.framework */,
 				A1F595E61897174200005E86 /* SenTestingKit.framework */,
+				8C1AD7634BEC4BCB87D3DD4D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,15 +227,14 @@
 		A1F595BD1897174100005E86 /* easyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A16D109A18971B6E008205DD /* Connector */,
+				A16D107418971AED008205DD /* Controller */,
+				A16D107F18971AED008205DD /* Model */,
 				A1F595C61897174100005E86 /* AppDelegate.h */,
 				A1F595C71897174100005E86 /* AppDelegate.m */,
 				A1F595CF1897174200005E86 /* MainStoryboard.storyboard */,
-				A1F595D21897174200005E86 /* FirstViewController.h */,
-				A1F595D31897174200005E86 /* FirstViewController.m */,
 				A1F595D51897174200005E86 /* first.png */,
 				A1F595D71897174200005E86 /* first@2x.png */,
-				A1F595D91897174200005E86 /* SecondViewController.h */,
-				A1F595DA1897174200005E86 /* SecondViewController.m */,
 				A1F595DC1897174200005E86 /* second.png */,
 				A1F595DE1897174200005E86 /* second@2x.png */,
 				A1F595BE1897174100005E86 /* Supporting Files */,
@@ -184,9 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1F595F71897174200005E86 /* Build configuration list for PBXNativeTarget "easyTracker" */;
 			buildPhases = (
+				FC12708061AF4798A4BE26ED /* Check Pods Manifest.lock */,
 				A1F595B01897174100005E86 /* Sources */,
 				A1F595B11897174100005E86 /* Frameworks */,
 				A1F595B21897174100005E86 /* Resources */,
+				02AD8F34623E4E83B5CCFBAD /* Copy Pods Resources */,
+				A16D107318971A6E008205DD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +372,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02AD8F34623E4E83B5CCFBAD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A16D107318971A6E008205DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/mogenerator --template-var arc=true -m \"${PROJECT_DIR}/easyTracker/Model/Model.xcdatamodeld/Model.xcdatamodel\" -M \"${PROJECT_DIR}/easyTracker/Model\" -H \"${PROJECT_DIR}/easyTracker/Model\"";
+		};
 		A1F595E31897174200005E86 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +413,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		FC12708061AF4798A4BE26ED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -293,8 +437,22 @@
 			files = (
 				A1F595C41897174100005E86 /* main.m in Sources */,
 				A1F595C81897174100005E86 /* AppDelegate.m in Sources */,
-				A1F595D41897174200005E86 /* FirstViewController.m in Sources */,
-				A1F595DB1897174200005E86 /* SecondViewController.m in Sources */,
+				A16D108F18971AED008205DD /* LoginViewController.m in Sources */,
+				A16D109018971AED008205DD /* ProjectsViewController.m in Sources */,
+				A16D109118971AED008205DD /* SecondViewController.m in Sources */,
+				A16D109218971AED008205DD /* TableViewController.m in Sources */,
+				A16D109318971AED008205DD /* _Project.m in Sources */,
+				A16D109418971AED008205DD /* _RemoteObject.m in Sources */,
+				A16D109518971AED008205DD /* _Story.m in Sources */,
+				A16D109618971AED008205DD /* Model.xcdatamodeld in Sources */,
+				A16D109718971AED008205DD /* Project.m in Sources */,
+				A16D109818971AED008205DD /* RemoteObject.m in Sources */,
+				A16D109918971AED008205DD /* Story.m in Sources */,
+				A16D109F18971B6E008205DD /* APIConnector.m in Sources */,
+				A16D10A018971B6E008205DD /* MappingProvider.m in Sources */,
+				A1FF3E1D189AA9C500FAA732 /* _User.m in Sources */,
+				A1FF3E1E189AA9C500FAA732 /* User.m in Sources */,
+				A16E9897189DFB8E00FC0346 /* FormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +560,7 @@
 		};
 		A1F595F81897174200005E86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 531ABCA173F14172B8B6F738 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "easyTracker/easyTracker-Prefix.pch";
@@ -413,6 +572,7 @@
 		};
 		A1F595F91897174200005E86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 531ABCA173F14172B8B6F738 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "easyTracker/easyTracker-Prefix.pch";
@@ -475,6 +635,7 @@
 				A1F595F91897174200005E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1F595FA1897174200005E86 /* Build configuration list for PBXNativeTarget "easyTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -483,8 +644,22 @@
 				A1F595FC1897174200005E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A16D108618971AED008205DD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A16D108718971AED008205DD /* Model.xcdatamodel */,
+			);
+			currentVersion = A16D108718971AED008205DD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A1F595AC1897174100005E86 /* Project object */;
 }
