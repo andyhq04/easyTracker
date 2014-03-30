@@ -1,4 +1,5 @@
 #import "Project.h"
+#import "APIConnector.h"
 
 
 @interface Project ()
@@ -9,7 +10,5 @@
 
 
 @implementation Project
-
-// Custom logic goes here.
 
 @end

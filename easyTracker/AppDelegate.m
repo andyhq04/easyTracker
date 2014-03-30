@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "TableViewController.h"
+#import "LUKeychainServices.h"
+#import "APIConnector.h"
 
 @implementation AppDelegate
 
@@ -15,6 +18,34 @@
     
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+   // [[LUKeychainServices keychainServices] deleteAllItemsWithError:NULL];
+
+    if([[LUKeychainServices keychainServices] dataForKey:@"password" error:NULL]) {
+        APIConnector *connector = [APIConnector sharedInstance];
+        //NSData *pwd = [[LUKeychainServices keychainServices] dataForKey:@"password" error:NULL];
+        NSString *pwdStr = [[LUKeychainAccess standardKeychainAccess] stringForKey:@"password"];//[[NSString alloc] initWithData:pwd encoding:NSUTF8StringEncoding];
+        NSLog(@"password %@", pwdStr);
+        //NSData *data = [[LUKeychainServices keychainServices] dataForKey:@"loginToken" error:NULL];
+        //NSLog(@"data %@", data);
+        NSString* token = [[LUKeychainAccess standardKeychainAccess] stringForKey:@"loginToken"];
+        NSLog(@"token %@", token);
+        
+        //data = [[LUKeychainServices keychainServices] dataForKey:@"userId" error:NULL];
+        NSString* userId = [[LUKeychainAccess standardKeychainAccess] stringForKey:@"userId"];//[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"userID %@", userId);
+        
+        [[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"X-Login-Token" value:token];
+        [[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"X-User-Id" value:userId];
+
+        UITabBarController *tableViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        window.rootViewController = tableViewController;
+    } else {
+        window.rootViewController = [storyboard instantiateInitialViewController];
+    }
 
     // Override point for customization after application launch.
     return YES;

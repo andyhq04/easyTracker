@@ -4,14 +4,20 @@
 #import "_Project.h"
 
 const struct ProjectAttributes ProjectAttributes = {
+	.createdAt = @"createdAt",
+	.currentIteration = @"currentIteration",
 	.desc = @"desc",
+	.id = @"id",
 	.length = @"length",
 	.name = @"name",
+	.owner = @"owner",
 	.startDate = @"startDate",
+	.updatedAt = @"updatedAt",
 	.velocity = @"velocity",
 };
 
 const struct ProjectRelationships ProjectRelationships = {
+	.stories = @"stories",
 };
 
 const struct ProjectFetchedProperties ProjectFetchedProperties = {
@@ -43,6 +49,11 @@ const struct ProjectFetchedProperties ProjectFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"currentIterationValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"currentIteration"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"lengthValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"length"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -60,7 +71,47 @@ const struct ProjectFetchedProperties ProjectFetchedProperties = {
 
 
 
+@dynamic createdAt;
+
+
+
+
+
+
+@dynamic currentIteration;
+
+
+
+- (int16_t)currentIterationValue {
+	NSNumber *result = [self currentIteration];
+	return [result shortValue];
+}
+
+- (void)setCurrentIterationValue:(int16_t)value_ {
+	[self setCurrentIteration:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveCurrentIterationValue {
+	NSNumber *result = [self primitiveCurrentIteration];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveCurrentIterationValue:(int16_t)value_ {
+	[self setPrimitiveCurrentIteration:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
 @dynamic desc;
+
+
+
+
+
+
+@dynamic id;
 
 
 
@@ -100,7 +151,21 @@ const struct ProjectFetchedProperties ProjectFetchedProperties = {
 
 
 
+@dynamic owner;
+
+
+
+
+
+
 @dynamic startDate;
+
+
+
+
+
+
+@dynamic updatedAt;
 
 
 
@@ -132,6 +197,19 @@ const struct ProjectFetchedProperties ProjectFetchedProperties = {
 
 
 
+
+@dynamic stories;
+
+	
+- (NSMutableSet*)storiesSet {
+	[self willAccessValueForKey:@"stories"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"stories"];
+  
+	[self didAccessValueForKey:@"stories"];
+	return result;
+}
+	
 
 
 

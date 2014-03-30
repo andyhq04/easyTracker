@@ -8,10 +8,17 @@
 
 #import "APIConnector.h"
 #import "MappingProvider.h"
+#import "CoreData+MagicalRecord.h"
 
 #import "Project.h"
 #import "Story.h"
 #import "User.h"
+
+// Use a class extension to expose access to MagicalRecord's private setter methods
+@interface NSManagedObjectContext ()
++ (void)MR_setRootSavingContext:(NSManagedObjectContext *)context;
++ (void)MR_setDefaultContext:(NSManagedObjectContext *)moc;
+@end
 
 @implementation APIConnector
 
@@ -31,19 +38,29 @@
 - (void)setupConnector
 {
     NSError *error = nil;
-    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
+    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:url] mutableCopy];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     
-    // Initialize the Core Data stack
     [managedObjectStore createPersistentStoreCoordinator];
     
-    NSPersistentStore __unused *persistentStore = [managedObjectStore addInMemoryPersistentStore:&error];
-    NSAssert(persistentStore, @"Failed to add persistent store: %@", error);
+    NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];//NSMigratePersistentStoresAutomaticallyOption: @(YES), NSInferMappingModelAutomaticallyOption: @(YES)};
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"local.sqlite"];
+
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:options error:&error];
+    if (!persistentStore) {
+        RKLogError(@"'%@' %@", storePath, error);
+    }
     
     [managedObjectStore createManagedObjectContexts];
     
     // Set the default store shared instance
     [RKManagedObjectStore setDefaultStore:managedObjectStore];
+
+    // Configure MagicalRecord to use RestKit's Core Data stack
+    [NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:managedObjectStore.persistentStoreCoordinator];
+    [NSManagedObjectContext MR_setRootSavingContext:managedObjectStore.persistentStoreManagedObjectContext];
+    [NSManagedObjectContext MR_setDefaultContext:managedObjectStore.mainQueueManagedObjectContext];
     
     // Configure the object manager
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000/"]];
@@ -109,6 +126,22 @@
     [user setPassword:password];
     NSLog(@"USER%@", user);
     [[RKObjectManager sharedManager] postObject:user path:@"api/login" parameters:nil success:success failure:failure];
+}
+
+- (void)signup:(NSString*) username
+      password:(NSString*) password
+       success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+       failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+    [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Content-Type" value:RKMIMETypeJSON];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext];
+    User *user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext];
+    
+    [user setUsername:username];
+    [user setPassword:password];
+
+
+    [[RKObjectManager sharedManager] postObject:user path:@"api/users" parameters:nil success:success failure:failure];
 }
 
 @end

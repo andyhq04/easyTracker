@@ -33,4 +33,9 @@
      password:(NSString*) password
       success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
       failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+
+- (void)signup:(NSString*) username
+     password:(NSString*) password
+      success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+      failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 @end

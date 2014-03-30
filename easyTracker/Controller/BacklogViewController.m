@@ -1,12 +1,12 @@
 //
-//  TableViewController.m
-//  myTRacker
+//  BacklogViewController.m
+//  easyTracker
 //
-//  Created by Andrea Herbas on 12/30/13.
-//
+//  Created by Andrea Herbas on 3/22/14.
+//  Copyright (c) 2014 Andrea Herbas. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "BacklogViewController.h"
 #import "FormViewController.h"
 #import "ProjectsViewController.h"
 #import "APIConnector.h"
@@ -15,11 +15,11 @@
 
 #import "Story.h"
 
-@interface TableViewController ()
+@interface BacklogViewController ()
 
 @end
 
-@implementation TableViewController
+@implementation BacklogViewController
 
 @synthesize managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -37,11 +37,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Stories", @"Stories");
+        self.title = NSLocalizedString(@"Backlog", @"Backlog");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         self.managedObjectContext = [NSManagedObjectContext MR_defaultContext];
-        [self setSelectedProject:[[LUKeychainAccess standardKeychainAccess] stringForKey:@"projectId"]];
-        NSLog(@"projectID %@", [[LUKeychainAccess standardKeychainAccess] stringForKey:@"projectId"]);
     }
     return self;
 }
@@ -50,7 +48,7 @@
 {
     self = [super initWithCoder:decoder];
     if (self) {
-        self.title = NSLocalizedString(@"Stories", @"Stories");
+        self.title = NSLocalizedString(@"Backlog", @"Backlog");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         self.managedObjectContext = [NSManagedObjectContext MR_defaultContext];
         [self setSelectedProject:[[LUKeychainAccess standardKeychainAccess] stringForKey:@"projectId"]];
@@ -77,7 +75,7 @@
     [self.tableView reloadData];
     [self loadStories];
     [self.refreshControl beginRefreshing];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,29 +92,24 @@
 - (void)loadStories
 {
     APIConnector *connector = [APIConnector sharedInstance];
-    NSLog(@"ID %@ iteration %@ owner %@", self.project.id, self.project.currentIteration, self.project.owner);
-    NSLog(@"projController %@", self.project);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"project.id = %@ AND iteration = %@ AND ownedBy = %@", self.project.id, self.project.currentIteration, self.project.owner];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"project.id = %@ AND iteration = %@", self.project.id, self.project.currentIteration];
     [self.fetchedResultsController.fetchRequest setPredicate:predicate];
     
     [connector loadStoriesByProject:self.project success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-
+        
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-
+        
         [self reloadTable:error];
         [self.refreshControl endRefreshing];
         
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         [self reloadTable:error];
         [self.refreshControl endRefreshing];
-        
-        /*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];*/
-    }];    
+    }];
 }
 
 #pragma mark - Table view data source
@@ -145,48 +138,48 @@
     }
     
     [self configureCell:cell atIndexPath:indexPath];
-   
+    
     return cell;
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Fetched results controller
 
@@ -273,11 +266,11 @@
 #pragma mark - Table view delegate
 
 /*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    FormViewController *loginViewController = [[FormViewController alloc]initWithNibName:@"FormViewController" bundle:nil];
-    //loginViewController. = APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext;
-    [self.navigationController pushViewController:loginViewController animated:YES];
-}*/
+ {
+ FormViewController *loginViewController = [[FormViewController alloc]initWithNibName:@"FormViewController" bundle:nil];
+ //loginViewController. = APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext;
+ [self.navigationController pushViewController:loginViewController animated:YES];
+ }*/
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -291,7 +284,7 @@
     if ([segue.identifier isEqualToString:@"projects"])
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-
+        
         ProjectsViewController *projectViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProjectsViewController"];
         UINavigationController *navController = [segue destinationViewController];
         
@@ -319,7 +312,7 @@
     [self.tableView reloadData];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"project"])
     {
@@ -342,6 +335,7 @@
     } else {
         self.project = nil;
     }
+    [self loadStories];
 }
 
 @end

@@ -4,10 +4,14 @@
 #import "_User.h"
 
 const struct UserAttributes UserAttributes = {
+	.createdAt = @"createdAt",
+	.id = @"id",
 	.loginToken = @"loginToken",
 	.password = @"password",
+	.updatedAt = @"updatedAt",
 	.user = @"user",
 	.userId = @"userId",
+	.username = @"username",
 };
 
 const struct UserRelationships UserRelationships = {
@@ -49,6 +53,20 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 
 
+@dynamic createdAt;
+
+
+
+
+
+
+@dynamic id;
+
+
+
+
+
+
 @dynamic loginToken;
 
 
@@ -63,6 +81,13 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 
 
+@dynamic updatedAt;
+
+
+
+
+
+
 @dynamic user;
 
 
@@ -71,6 +96,13 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 
 @dynamic userId;
+
+
+
+
+
+
+@dynamic username;
 
 
 

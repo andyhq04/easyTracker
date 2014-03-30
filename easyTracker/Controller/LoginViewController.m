@@ -7,9 +7,9 @@
 //
 
 #import "LoginViewController.h"
-#import "TableViewController.h"
 #import "SecondViewController.h"
 #import "APIConnector.h"
+#import "LUKeychainServices.h"
 
 @interface LoginViewController ()
 
@@ -58,6 +58,14 @@
  
         [[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"X-Login-Token" value:[mappingResult.firstObject valueForKeyPath:@"loginToken"]];
         [[[RKObjectManager sharedManager] HTTPClient] setDefaultHeader:@"X-User-Id" value:[mappingResult.firstObject valueForKeyPath:@"userId"]];
+        //NSData * data = [[mappingResult.firstObject valueForKeyPath:@"loginToken"] dataUsingEncoding:NSUTF8StringEncoding];
+        [[LUKeychainAccess standardKeychainAccess] setString:[mappingResult.firstObject valueForKeyPath:@"loginToken"] forKey:@"loginToken"];
+       //data = [[mappingResult.firstObject valueForKeyPath:@"userId"] dataUsingEncoding:NSUTF8StringEncoding];
+        [[LUKeychainAccess standardKeychainAccess] setString:[mappingResult.firstObject valueForKeyPath:@"userId"] forKey:@"userId"];
+        //data = [self.passwordText.text dataUsingEncoding:NSUTF8StringEncoding];
+        //NSLog(@"data login %@", data);
+        [[LUKeychainAccess standardKeychainAccess] setString:self.passwordText.text forKey:@"password"];
+        
         [self performSegueWithIdentifier:@"login" sender:self];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

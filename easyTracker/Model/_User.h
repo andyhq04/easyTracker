@@ -2,13 +2,17 @@
 // Make changes to User.h instead.
 
 #import <CoreData/CoreData.h>
-#import "RemoteObject.h"
+
 
 extern const struct UserAttributes {
+	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *loginToken;
 	__unsafe_unretained NSString *password;
+	__unsafe_unretained NSString *updatedAt;
 	__unsafe_unretained NSString *user;
 	__unsafe_unretained NSString *userId;
+	__unsafe_unretained NSString *username;
 } UserAttributes;
 
 extern const struct UserRelationships {
@@ -23,14 +27,38 @@ extern const struct UserFetchedProperties {
 
 
 
+
+
+
+
 @interface UserID : NSManagedObjectID {}
 @end
 
-@interface _User : RemoteObject {}
+@interface _User : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (UserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* createdAt;
+
+
+
+//- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* id;
+
+
+
+//- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -56,6 +84,16 @@ extern const struct UserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSDate* updatedAt;
+
+
+
+//- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* user;
 
 
@@ -76,6 +114,16 @@ extern const struct UserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* username;
+
+
+
+//- (BOOL)validateUsername:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 
 @end
 
@@ -84,6 +132,18 @@ extern const struct UserFetchedProperties {
 @end
 
 @interface _User (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSDate*)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveId;
+- (void)setPrimitiveId:(NSString*)value;
+
+
 
 
 - (NSString*)primitiveLoginToken;
@@ -98,6 +158,12 @@ extern const struct UserFetchedProperties {
 
 
 
+- (NSDate*)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate*)value;
+
+
+
+
 - (NSString*)primitiveUser;
 - (void)setPrimitiveUser:(NSString*)value;
 
@@ -106,6 +172,12 @@ extern const struct UserFetchedProperties {
 
 - (NSString*)primitiveUserId;
 - (void)setPrimitiveUserId:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUsername;
+- (void)setPrimitiveUsername:(NSString*)value;
 
 
 
