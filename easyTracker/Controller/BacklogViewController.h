@@ -1,9 +1,9 @@
 //
-//  TableViewController.h
-//  myTRacker
+//  BacklogViewController.h
+//  easyTracker
 //
-//  Created by Andrea Herbas on 12/30/13.
-//
+//  Created by Andrea Herbas on 3/22/14.
+//  Copyright (c) 2014 Andrea Herbas. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,7 +12,7 @@
 
 #import "ProjectsViewController.h"
 
-@interface TableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface BacklogViewController : UITableViewController
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

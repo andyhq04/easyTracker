@@ -7,9 +7,7 @@
 //
 
 #import "SecondViewController.h"
-
 #import "ProjectsViewController.h"
-
 #import "APIConnector.h"
 
 @interface SecondViewController ()
@@ -55,10 +53,15 @@
 {
     if ([segue.identifier isEqualToString:@"projects"])
     {
-        //NSIndexPath *index = self.projectsViewController.lastIndexPath;
-        self.projectsViewController = [segue destinationViewController];
-        self.projectsViewController.managedObjectContext = APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext;
-       // self.projectsViewController.lastIndexPath = index;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        
+        ProjectsViewController *projectViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProjectsViewController"];
+        UINavigationController *navController = [segue destinationViewController];
+        
+        projectViewController.managedObjectContext = APIConnector.sharedInstance.managedObjectStore.mainQueueManagedObjectContext;
+        self.projectsViewController = projectViewController;
+        
+        [navController pushViewController:projectViewController animated:YES];
     }
 }
 

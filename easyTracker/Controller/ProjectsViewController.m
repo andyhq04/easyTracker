@@ -8,8 +8,9 @@
 
 #import "ProjectsViewController.h"
 #import "Project.h"
-
 #import "APIConnector.h"
+#import "LUKeychainServices.h"
+#import "AppDelegate.h"
 
 @interface ProjectsViewController ()
 
@@ -26,14 +27,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *buttonItem;
-    
-    buttonItem = [[UIBarButtonItem alloc]initWithTitle: @"Projects" style: UIBarButtonItemStyleBordered target: self action: @selector(showProjects)];
-    self.navigationItem.leftBarButtonItem = buttonItem;
     
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     [refreshControl addTarget:self action:@selector(loadProjects) forControlEvents:UIControlEventValueChanged];
@@ -64,8 +67,8 @@
         [self.refreshControl endRefreshing];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         [self.refreshControl endRefreshing];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
+        /*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An Error Has Occurred" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];*/
     }];
     
     [self.refreshControl endRefreshing];
@@ -83,7 +86,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     NSLog(@"Rows %d", [sectionInfo numberOfObjects]);
@@ -159,30 +161,22 @@
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    //NSLog(@"self table %@", self.managedObjectContext);
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Project" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:300];
     
-    // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -248,7 +242,11 @@
     [tableView reloadData];
     
     self.project = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog(@"seleccionado %@" , self.project);
+    NSLog(@"seleccionado %@" , self.project.id);
+    
+    [[LUKeychainAccess standardKeychainAccess] setString:self.project.id forKey:@"projectId"];
+    NSLog(@"projectID %@", [[LUKeychainAccess standardKeychainAccess] stringForKey:@"projectId"]);
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

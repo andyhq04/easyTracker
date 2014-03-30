@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (retain) NSIndexPath* lastIndexPath;
-@property (retain) Project* project;
+@property (strong, nonatomic) Project* project;
 @property (strong, nonatomic) IBOutlet UITableView *projectsTable;
 
 @end

@@ -8,6 +8,11 @@
         <attribute name="velocity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Story" inverseName="stories" inverseEntity="Story" syncable="YES"/>
     </entity>
+    <entity name="RemoteObject" representedClassName="RemoteObject" isAbstract="YES" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="Story" representedClassName="Story" parentEntity="RemoteObject" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="points" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -25,6 +30,7 @@
     </entity>
     <elements>
         <element name="Project" positionX="-90" positionY="312" width="128" height="135"/>
+        <element name="RemoteObject" positionX="-209" positionY="171" width="128" height="90"/>
         <element name="Story" positionX="-308" positionY="315" width="128" height="150"/>
         <element name="User" positionX="-11" positionY="180" width="128" height="105"/>
     </elements>
